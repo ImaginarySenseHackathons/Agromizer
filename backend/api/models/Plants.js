@@ -13,11 +13,79 @@ module.exports = {
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
 
+    // GENERAL INFO
+    scientific_name: {
+      type: 'string',
+      unique: true,
+      required: false
+    },
+    common_name: {
+      type: 'string',
+      unique: true,
+      required: true
+    },
+
+    // PERMACULTURE
+    // NPK, cantidades mínimas y máximas necesarias de los químicos más relevantes
+    // (N)
+    nitrogen: {
+      type: 'boolean',
+    },
+    // // (K)
+    // potasium: {
+    //   type: 'boolean',
+    // },
+    // // (P)
+    // phosphorus: {
+    //   type: 'boolean',
+    // },
+    ph: {
+      type: 'number',
+    },
+
+    // DISTANCE BETWEEN ROWS
+    // Recommended distance between plants of the same kind
+    distance: {
+      type: 'number',
+    },
+    // Type of plant
+    // Relevant due to tendencies
+    type: {
+      type: 'string',
+      isIn: ['unknown', 'citrico', 'leguminosa', 'frutal'],
+      defaultsTo: 'unknown'
+    },
+    // Cítricos 3-6 metros
+    // Citricos, Leguminosas, Frutales
+    // Árboles, arbustos, hierbas
+    
+    // // DISTANCE BETWEEN PLANTS WITHIN NODE
+    // // Size Constrains
+    // plant_height: {
+    //   type: 'number',
+    // },
+
+    // ECONOMICAL
+    // Tiempo de cosecha
+    harvest_time_min: {
+      type: 'number',
+      defaultsTo: 0
+    },
+    harvest_time_max: {
+      type: 'number',
+    },
+    // // Days since harvest till expiration
+    // expiration_time: {
+    //   type: 'number',
+    // },    
+    // // Water requirements
+    // water_amount: {
+    //   type: 'number',
+    // },
 
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
     //  ╚═╝╩ ╩╚═╝╚═╝═╩╝╚═╝
-
 
     //  ╔═╗╔═╗╔═╗╔═╗╔═╗╦╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
@@ -27,3 +95,35 @@ module.exports = {
 
 };
 
+// nitrogen_min: {
+//   type: 'number',
+// },
+// nitrogen_max: {
+//   type: 'number',
+// },
+// // (K) 
+// potasium_min: {
+//   type: 'number',
+// },
+// potasium_max: {
+//   type: 'number',
+// },
+// // (P)
+// phosphorus_min: {
+//   type: 'number',
+// },
+// phosphorus_max: {
+//   type: 'number',
+// },
+// // Ph
+// ph_min: {
+//   type: 'number',
+// },
+// ph_max: {
+//   type: 'number',
+// },
+// // "Durability", how frequently can you plant them
+// type: {
+//   type: 'string',
+//   isIn: ['anual', 'bianual', 'perennes'],
+// },

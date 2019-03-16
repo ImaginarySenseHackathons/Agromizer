@@ -26,5 +26,44 @@ module.exports.bootstrap = async function() {
   //   // etc.
   // ]);
   // ```
+  await Plants.createEach([
+    {
+      scientific_name: 'Plantesihon',
+      common_name: 'Planta',
+      type: 'leguminosa',
+      nitrogen: true,
+      potasium: true,
+      phosphorus: true,
+      ph: 0,
+      distance: 5,
+      harvest_time_min: 0,
+      harvest_time_max: 0,
+    },
+    {
+      scientific_name: 'Plantesihon 2',
+      common_name: 'Planta 2',
+      type: 'citrico',
+      nitrogen: true,
+      potasium: true,
+      phosphorus: true,
+      ph: 6,
+      distance: 10,
+      harvest_time_min: 0,
+      harvest_time_max: 0,
+    },
+    {
+      scientific_name: 'Plantesihon 3',
+      common_name: 'Planta 3',
+      type: 'citrico',
+      nitrogen: true,
+      potasium: true,
+      phosphorus: true,
+      ph: 6,
+      distance: 10,
+      harvest_time_min: 0,
+      harvest_time_max: 0,
+    },
+    
+  ]);
 
 };

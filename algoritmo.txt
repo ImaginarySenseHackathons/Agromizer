@@ -1,9 +1,14 @@
+// Current
+1.	identificar plantas grandes
+2.	Distribuir en filas, alternando
+3.	
+
+// Old
 1.	Cubrir borde del huerto con plantas Aromáticas
 		Comenzar el patrón con la planta de mayor tamaño
 		Alternar plantas evitando que hayan plantas adyacentes de la misma familia.
 			(Plantas de la misma familia suelen ser incompatibles en una asociación de cultivos, por lo que debemos evitar cultivarlas juntas.)
 2.	Dividir el área restante en unidades discretas según el por ciento de espacio que se desea dedicar a cada planta seleccionada.
-3.	
 
 
 
@@ -48,10 +53,12 @@ Luz y sombra
 		Sepáralos más
 	No necesita luz
 		Juntalos con un cultivo de mayor altura
-
 Protectoras
 	Planta aromática
-Fijadora de nitrógeno
+	Fijadora de nitrógeno
+
+
+
 
 
 Formatos de siembra
@@ -72,15 +79,35 @@ Clima
 Densidad de siembra: Número de semillas o plántulas por hectárea
 	definida opr espacio de siembra y el marco de plantación
 
-NPK = 
+yield: cuanto producto por hectárea
+duration:
+	duration: temporada de cultivo
+	expiration: vida util del cultivo luego de la cosecha
 
 
+NPK = Nitrogeno * Potasio * Fósforo
+
+>30cm
 Hileras simples
+<30cm
 Hileras dobles
 Hileras triples (piña)
 
 
 Frutales (distancias de siembra de 6 metros)
-
 Maiz
 	10cm a 40cm entre 
+
+
+DB structure
+
+	Tipo de planta
+		id
+		nombre
+		Distancia
+
+	Planta
+		tipo de planta FK
+
+
+suculentas
