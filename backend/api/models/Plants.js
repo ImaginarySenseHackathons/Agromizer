@@ -39,7 +39,10 @@ module.exports = {
     // phosphorus: {
     //   type: 'boolean',
     // },
-    ph: {
+    ph_min: {
+      type: 'number',
+    },
+    ph_max: {
       type: 'number',
     },
 
@@ -48,16 +51,19 @@ module.exports = {
     distance: {
       type: 'number',
     },
-    // Type of plant
-    // Relevant due to tendencies
+    // Tallos
+    // Árboles, arbustos, hierbas
     type: {
       type: 'string',
-      isIn: ['unknown', 'citrico', 'leguminosa', 'frutal'],
-      defaultsTo: 'unknown'
+      isIn: ['Aromática', 'Floral', 'Leguminosa', 'Frutal', 'Hortaliza'],
     },
-    // Cítricos 3-6 metros
-    // Citricos, Leguminosas, Frutales
-    // Árboles, arbustos, hierbas
+    
+    // ASOCIATIONS
+    // Relevant to asociation
+    trunk: {
+      type: 'string',
+      isIn: ['Subterraneo', 'Trepador', 'Herbáceos', 'Carnosos', 'Mata', 'Arbusto', 'Árbol'],
+    },
     
     // // DISTANCE BETWEEN PLANTS WITHIN NODE
     // // Size Constrains
@@ -67,13 +73,13 @@ module.exports = {
 
     // ECONOMICAL
     // Tiempo de cosecha
-    harvest_time_min: {
-      type: 'number',
-      defaultsTo: 0
-    },
-    harvest_time_max: {
-      type: 'number',
-    },
+    // harvest_time_min: {
+    //   type: 'number',
+    //   defaultsTo: 0
+    // },
+    // harvest_time_max: {
+    //   type: 'number',
+    // },
     // // Days since harvest till expiration
     // expiration_time: {
     //   type: 'number',
@@ -83,13 +89,18 @@ module.exports = {
     //   type: 'number',
     // },
 
-    //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
-    //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
-    //  ╚═╝╩ ╩╚═╝╚═╝═╩╝╚═╝
-
     //  ╔═╗╔═╗╔═╗╔═╗╔═╗╦╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
+
+    // beneficial: {
+    //   collection: 'beneficial',
+    //   via: 'plants'
+    // },
+    // detrimental: {
+    //   collection: 'detrimental',
+    //   via: 'plants'
+    // },
 
   },
 
@@ -113,13 +124,6 @@ module.exports = {
 //   type: 'number',
 // },
 // phosphorus_max: {
-//   type: 'number',
-// },
-// // Ph
-// ph_min: {
-//   type: 'number',
-// },
-// ph_max: {
 //   type: 'number',
 // },
 // // "Durability", how frequently can you plant them
