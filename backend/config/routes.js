@@ -20,7 +20,14 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/': { view: 'pages/homepage' },
-
+  'GET /plants': {
+    controller: 'plants',
+    action: 'plants'
+  },
+  'POST /optimize': {
+    controller: 'plants',
+    action: 'optimize'
+  },
 
   /***************************************************************************
   *                                                                          *
