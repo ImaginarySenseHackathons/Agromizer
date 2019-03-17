@@ -1,0 +1,19 @@
+.templateux-cover {
+	background-size: cover;
+	&, .row {
+		min-height: 800px;
+	}
+	.heading {
+		font-size: 30px;
+		line-height: 1.5;
+		color: $black;
+		@include media-breakpoint-up(md) {
+			
+			font-size: 50px;
+		}
+	}
+	.lead {
+		color: lighten($black, 60%);
+		line-height: 1.8;
+	}
+}

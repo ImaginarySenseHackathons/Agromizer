@@ -1,29 +1,175 @@
 <html lang="en">
   <head>
-   <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    
-
-    <title>Agromizer</title>
+    <title>Atomic &mdash; Agromizer</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">    
+   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css">
+   
+   <script src="js/table.js"></script>
   </head>
   <body>
+  
+  <div class="js-animsition animsition" id="site-wrap" data-animsition-in-class="fade-in" data-animsition-out-class="fade-out">
 
-  <div class="jumbotron">
 
-  <h1 class="display-4">Agromizer</h1>
-  <p class="lead"></p>
-  <p></p>
-  <hr class="my-4">
-  <p></p>
-  <p class="lead"></p>
-  <a id="button" class="btn btn-primary btn-lg" href="table.html" role="button">How to Feed</a>
-</div>
      
-    <!-- <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-    <script type="text/javascript" src="table.js"></script -->
+      <div class="container"  data-aos="fade-down">
+        <div class="row">
+
+          <div class="col-3 templateux-logo">
+            <a href="index.html" class="animsition-link">Agromizer</a>
+          </div>
+          <nav class="col-9 site-nav">
+            <button class="d-block d-md-none hamburger hamburger--spin templateux-toggle templateux-toggle-light ml-auto templateux-toggle-menu" data-toggle="collapse" data-target="#mobile-menu" aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+              </span>
+            </button> <!-- .templateux-toggle -->
+
+            
+
+          </nav> <!-- .site-nav -->
+          
+
+        </div> <!-- .row -->
+      </div> <!-- .container -->
+    </header> <!-- .templateux-navba -->
+    
+    <div class="templateux-cover" style="background-image: url(images/slider-1.jpg);">
+      <div class="container">
+        <div class="row align-items-lg-center">
+          <div class="col-lg-6 text-center order-lg-2">
+      
+          </div>
+          <div class="col-lg-6 order-lg-1">
+            <h1 class="heading mb-3" data-aos="fade-up">Agromizer a better way to calculate your space.</h1>
+            <p class="lead mb-5" data-aos="fade-up"  data-aos-delay="100">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+            <p data-aos="fade-up" data-aos-delay="200"><a href="table/table.html" class="btn btn-primary py-3 px-4">Seed your ground</a></p>
+            
+          </div>
+          
+        </div>
+      </div>
+    </div> <!-- .templateux-cover -->
+
+    <div class="templateux-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 templateux-overlap">
+            <div class="row">
+              <div class="col-md-4" data-aos="fade-up" data-aos-delay="600">
+                <div class="media block-icon-1 d-block text-left">
+                  <div class="icon mb-3"><span class="ion-ios-lightbulb-outline"></span></div>
+                  <div class="media-body">
+                    <h3 class="h5 mb-4">Intuitive Thinking</h3>
+                    <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                  </div>
+                </div> <!-- .block-icon-1 -->
+              </div>
+              <div class="col-md-4" data-aos="fade-up" data-aos-delay="700">
+                <div class="media block-icon-1 d-block text-left">
+                  <div class="icon mb-3"><span class="ion-ios-nutrition-outline"></span></div>
+                  <div class="media-body">
+                    <h3 class="h5 mb-4">Orange for Carrots</h3>
+                    <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                  </div>
+                </div> <!-- .block-icon-1 -->
+              </div>
+              <div class="col-md-4" data-aos="fade-up" data-aos-delay="800">
+                <div class="media block-icon-1 d-block text-left">
+                  <div class="icon mb-3"><span class="ion-ios-infinite-outline"></span></div>
+                  <div class="media-body">
+                    <h3 class="h5 mb-4">Infinite Posibilities</h3>
+                    <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                  </div>
+                </div> <!-- .block-icon-1 -->
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> <!-- .templateux-section -->
+
+    <div class="templateux-section bg-primary" id="templateux-counter-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md">
+            <div class="templateux-counter text-center">
+              <span class="templateux-number" data-number="99399">0</span>
+              <span class="templateux-label">Lines of Codes</span>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="templateux-counter text-center">
+              <span class="templateux-number" data-number="99">0</span>
+              <span class="templateux-label">Number of Projects</span>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="templateux-counter text-center">
+              <span class="templateux-number" data-number="124">0</span>
+              <span class="templateux-label">Number of Clients</span>
+            </div>
+          </div>    
+        </div>
+      </div>
+      
+      </div>
+    </div> <!-- .templateux-section -->
+
+      <div class="templateux-section">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-8 testimonial-wrap">
+            <div class="quote">&ldquo;</div>
+            <div class="owl-carousel wide-slider-testimonial">
+              <div class="item">
+                <blockquote class="block-testomonial">
+                  <p>&ldquo;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.&rdquo;</p>
+                </blockquote>
+              </div>
+
+              <div class="item">
+                <blockquote class="block-testomonial">
+                  <p>&ldquo;When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.&rdquo;</p>
+                </blockquote>
+              </div>
+
+              <div class="item">
+                <blockquote class="block-testomonial">
+                  <p>&ldquo;A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.&rdquo;</p>
+                </blockquote>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> <!-- .container -->
+    </div> <!-- .templateux-section -->
+    
+    
+      <footer>
+        <div class="row pt-5 text-left">
+          <div class="col-md-12 text-left"><p>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" class="text-primary">Colorlib</a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+          </p></div>
+        </div> <!-- .row -->
+
+      </div>
+    </footer> <!-- .templateux-footer -->
+    
+
+   </div> <!-- .js-animsition -->
+   
+  
+ 
+  
+  <script src="js/scripts-all.js"></script>
+  <script src="js/main.js"></script>
+  
   </body>
-  </html>
+</html>
