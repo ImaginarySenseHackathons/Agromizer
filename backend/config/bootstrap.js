@@ -26,6 +26,9 @@ module.exports.bootstrap = async function() {
   //   // etc.
   // ]);
   // ```
+  if (await Plants.count() > 0)
+    return;
+
   await Plants.createEach([
     {
       scientific_name: 'Plantesihon',

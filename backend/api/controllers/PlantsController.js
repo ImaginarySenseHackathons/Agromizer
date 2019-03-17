@@ -41,7 +41,8 @@ module.exports = {
             valuesToEscape = [];
         let sql = `SELECT *
             FROM plants
-            WHERE id IN (`+plants+`)
+            WHERE id IN (`+plants+`) AND distance>=1
+            ORDER BY distance DESC
             `;
         // EXECUTE
         try {
@@ -60,7 +61,44 @@ module.exports = {
         // BEGIN OPTIMIZATION
 
         // RETURN RESPONSE
-        return res.ok(result);
+        plants = result.rows;
+        let width = req.param('width'),
+            height = req.param('height'),
+            totalArea = width * height,
+            binsAreas = totalArea / plants.length,
+            plot = Array(),
+            x = 0,
+            y = 0,
+            bed = 0;
+        // Ancho de la hilera
+        let hileraWidth = Math.pow(plants[0].distance,2);
+        // Go through plant instances, generating hileras and nodes
+        for (let i=0; i<plants.length; i++) {
+            plantArea = Math.pow(plants[i].distance,2)
+            plants[i].instances = Math.floor(binsAreas / plantArea );
+            // First Y indentation
+            for (let j=0; j<plants[i].instances; j++) {
+                // Create node
+                let node = Object();
+                // Node properties
+                node.width = plants[i].distance;
+                node.height = plants[i].distance;
+                node.plant = plants[i];    
+                // Node placement
+                if (x + plants[i].distance < height)
+                    x = x + plants[i].distance;
+                else
+                    x = 0;
+                node.x = x;
+                if (y + plants[i].distance < width)
+                    y = y + plants[i].distance;
+                node.y = y;
+                // Add tree node to plotter
+                node.type = 'tree';
+                plot.push(node);
+            }
+        }
+        return res.ok(plot);
     }
 };
 
