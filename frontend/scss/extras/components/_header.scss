@@ -1,0 +1,266 @@
+$menu_padding: 26px;
+$dropdown_font_size: 14px;
+
+.templateux-navbar {
+	
+	width: 100%;
+	position: relative;
+	background-color: $primary;	
+	padding: 10px 0;
+	@include media-breakpoint-up(md) {
+		position: absolute;	
+		background-color: transparent;	
+		padding: 40px 0 ;
+	}
+	.templateux-logo {
+		margin-top: 10px;
+		a {
+			font-size: 22px;
+			color: $white;
+		}
+	}
+
+	// toggle
+	.templateux-toggle {
+		outline: none!important;
+		display: none;
+		&.templateux-toggle-light {
+			.hamburger-inner {
+				&, &:before, &:after {
+					background-color: $white;
+				}
+			}
+			&:hover {
+				opacity: 1;
+			}
+		}
+	}
+	
+
+	// menu
+	.templateux-menu {
+		float: right;
+		a {
+			text-decoration: none;
+			color: lighten($white, 50%);
+			&:hover, &:active, &:focus {
+				color: lighten($white, 60%);
+			}
+		}
+		> li {
+			float: none;
+			display: inline-block;
+			line-height: 1.5;
+			&.active {
+				> a {
+					color: $white;
+				}
+			}
+			// first level menu
+			> a {
+				
+				text-transform: uppercase;
+				font-size: 13px;
+				letter-spacing: .1em;
+				padding: 20px 5px;
+				@include media-breakpoint-up(lg) {
+					padding: 20px 15px;
+				}
+				
+				&.sf-with-ul {
+					position: relative;
+					padding-right: 20px;
+					&:after {
+						font-family: 'icomoon';
+						top: 50%;
+						right: 0;
+						content: "\e313";
+						position: absolute;
+						transform: translateY(-50%);
+					}
+				}
+			}
+			> ul {
+				padding: 20px #{$menu_padding};
+				> li {
+					> ul {
+						padding: #{$menu_padding};
+
+						> li {
+							> ul {
+								padding: #{$menu_padding};
+							}
+						}
+					}
+				}
+			}
+		}
+		ul {
+			border-radius: 4px;
+			box-shadow: 0px 1px 2px 0 rgba($black, .2);
+			a {
+				font-size: $dropdown_font_size;
+				color: lighten($black, 60%);
+				&:hover, &:active, &:focus {
+					color: $black;
+				}
+
+				&.sf-with-ul {
+					position: relative;
+				
+					&:after {
+						font-family: 'icomoon';
+						top: 50%;
+						right: 0;
+						content: "\e315";
+						position: absolute;
+						transform: translateY(-50%);
+					}
+				}
+			}
+		}
+		li {
+			&.sfHover {
+				> a {
+					color: lighten($white, 60%);
+				}
+			}
+		}
+		ul {
+			text-align: left;
+			min-width: 12em;
+			background: #fff;
+			li {
+				padding: 4px 0;
+				&.sfHover {
+					> a {
+						color: lighten($black, 0%);
+					}
+				}
+			}
+		}
+	}
+	
+
+	// dark
+	&.dark {
+		.templateux-logo {
+			margin-top: 10px;
+			a {
+				font-size: 22px;
+				color: $white;
+				@include media-breakpoint-up(md) {
+					color: $black;
+				}
+			}
+		}
+		// menu
+		.templateux-menu {
+			float: right;
+			a {
+				text-decoration: none;
+				color: lighten($black, 50%);
+				&:hover, &:active, &:focus {
+					color: lighten($black, 60%);
+				}
+			}
+			li {
+				&.active {
+					> a {
+						color: $black;
+					}
+				}
+			}
+		}
+
+		li {
+			&.sfHover {
+				> a {
+					color: lighten($black, 60%);
+				}
+			}
+		}
+
+
+
+	}
+
+	// templateux-menu custom mega menu
+	.templateux-menu {
+		li {
+			&.megamenu {
+				> ul {
+					> li {
+						width: 50%;
+						> ul {
+							// background: transparent;
+						}
+					}
+				}
+				&.col-3 {
+					> ul {
+						> li {
+							float: left;
+							width: 33.333333%;
+						}
+					}
+				}
+				&.col-4 {
+					> ul {
+						> li {
+							width: 25%;
+						}
+					}
+				}
+				> ul {
+					min-width: 400px;
+					> li {
+						float: left;
+						&.sfHover {
+							display: block!important;
+							> ul {
+								display: block!important;
+							}
+						}
+						// heading
+						&.column-heading {
+							> a {
+								font-size: 16px;
+								color: $black!important;
+								margin-bottom: 10px;
+							}
+						}
+						> a {
+							&:after {
+								display: none;
+							}
+						}
+						> ul {
+							display: block!important;
+							opacity: 1!important;
+							visibility: visible!important;
+							left: 0;
+							box-shadow: none;
+							padding: 0;
+							margin: 0;
+							position: relative!important;
+
+						}
+					}
+				}
+			}
+			&.fullwidth {
+				// position: static;
+				> ul {
+					// position: static;
+					// border: 1px solid red;
+					// width: 100%;
+					// max-width: 1170px;
+					left: 0px;
+					// position: absolute;
+					// right: 0;
+				}
+			}
+		}
+	}
+}
