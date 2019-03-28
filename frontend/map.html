@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="js/konva.min.js"></script>
+  <meta charset="utf-8">
+  <title>Map</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #F0F0F0;
+    }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+  <script>
+    var width = window.innerWidth;
+    var height = window.innerHeight;
+    var data = [
+    {
+        "width": 10,
+        "height": 10,
+        "plant": {
+            "createdAt": "1552783163392",
+            "updatedAt": "1552783163392",
+            "id": 2,
+            "scientific_name": "Plantesihon 2",
+            "common_name": "Planta 2",
+            "nitrogen": true,
+            "ph_min": 6,
+            "distance": 10,
+            "type": "frutal",
+            "harvest_time_min": 0,
+            "harvest_time_max": 0,
+            "aromatic": null,
+            "ph_max": null,
+            "trunk": null,
+            "instances": 9
+        },
+        "x": 10,
+        "y": 10,
+        "type": "tree"
+    },
+    {
+        "width": 10,
+        "height": 10,
+        "plant": {
+            "createdAt": "1552783163392",
+            "updatedAt": "1552783163392",
+            "id": 2,
+            "scientific_name": "Plantesihon 2",
+            "common_name": "Planta 2",
+            "nitrogen": true,
+            "ph_min": 6,
+            "distance": 10,
+            "type": "frutal",
+            "harvest_time_min": 0,
+            "harvest_time_max": 0,
+            "aromatic": null,
+            "ph_max": null,
+            "trunk": null,
+            "instances": 9
+        },
+        "x": 0,
+        "y": 20,
+        "type": "tree"
+    },
+    {
+        "width": 10,
+        "height": 10,
+        "plant": {
+            "createdAt": "1552783163392",
+            "updatedAt": "1552783163392",
+            "id": 2,
+            "scientific_name": "Plantesihon 2",
+            "common_name": "Planta 2",
+            "nitrogen": true,
+            "ph_min": 6,
+            "distance": 10,
+            "type": "frutal",
+            "harvest_time_min": 0,
+            "harvest_time_max": 0,
+            "aromatic": null,
+            "ph_max": null,
+            "trunk": null,
+            "instances": 9
+        },
+        "x": 10,
+        "y": 30,
+        "type": "tree"
+    },
+    {
+        "width": 10,
+        "height": 10,
+        "plant": {
+            "createdAt": "1552783163392",
+            "updatedAt": "1552783163392",
+            "id": 2,
+            "scientific_name": "Plantesihon 2",
+            "common_name": "Planta 2",
+            "nitrogen": true,
+            "ph_min": 6,
+            "distance": 10,
+            "type": "frutal",
+            "harvest_time_min": 0,
+            "harvest_time_max": 0,
+            "aromatic": null,
+            "ph_max": null,
+            "trunk": null,
+            "instances": 9
+        },
+        "x": 0,
+        "y": 40,
+        "type": "tree"
+    },
+    {
+        "width": 10,
+        "height": 10,
+        "plant": {
+            "createdAt": "1552783163392",
+            "updatedAt": "1552783163392",
+            "id": 2,
+            "scientific_name": "Plantesihon 2",
+            "common_name": "Planta 2",
+            "nitrogen": true,
+            "ph_min": 6,
+            "distance": 10,
+            "type": "frutal",
+            "harvest_time_min": 0,
+            "harvest_time_max": 0,
+            "aromatic": null,
+            "ph_max": null,
+            "trunk": null,
+            "instances": 9
+        },
+        "x": 10,
+        "y": 40,
+        "type": "tree"
+    },
+    {
+        "width": 10,
+        "height": 10,
+        "plant": {
+            "createdAt": "1552783163392",
+            "updatedAt": "1552783163392",
+            "id": 2,
+            "scientific_name": "Plantesihon 2",
+            "common_name": "Planta 2",
+            "nitrogen": true,
+            "ph_min": 6,
+            "distance": 10,
+            "type": "frutal",
+            "harvest_time_min": 0,
+            "harvest_time_max": 0,
+            "aromatic": null,
+            "ph_max": null,
+            "trunk": null,
+            "instances": 9
+        },
+        "x": 0,
+        "y": 40,
+        "type": "tree"
+    },
+    {
+        "width": 10,
+        "height": 10,
+        "plant": {
+            "createdAt": "1552783163392",
+            "updatedAt": "1552783163392",
+            "id": 2,
+            "scientific_name": "Plantesihon 2",
+            "common_name": "Planta 2",
+            "nitrogen": true,
+            "ph_min": 6,
+            "distance": 10,
+            "type": "frutal",
+            "harvest_time_min": 0,
+            "harvest_time_max": 0,
+            "aromatic": null,
+            "ph_max": null,
+            "trunk": null,
+            "instances": 9
+        },
+        "x": 10,
+        "y": 40,
+        "type": "tree"
+    },
+    {
+        "width": 10,
+        "height": 10,
+        "plant": {
+            "createdAt": "1552783163392",
+            "updatedAt": "1552783163392",
+            "id": 2,
+            "scientific_name": "Plantesihon 2",
+            "common_name": "Planta 2",
+            "nitrogen": true,
+            "ph_min": 6,
+            "distance": 10,
+            "type": "frutal",
+            "harvest_time_min": 0,
+            "harvest_time_max": 0,
+            "aromatic": null,
+            "ph_max": null,
+            "trunk": null,
+            "instances": 9
+        },
+        "x": 0,
+        "y": 40,
+        "type": "tree"
+    },
+    {
+        "width": 10,
+        "height": 10,
+        "plant": {
+            "createdAt": "1552783163392",
+            "updatedAt": "1552783163392",
+            "id": 2,
+            "scientific_name": "Plantesihon 2",
+            "common_name": "Planta 2",
+            "nitrogen": true,
+            "ph_min": 6,
+            "distance": 10,
+            "type": "frutal",
+            "harvest_time_min": 0,
+            "harvest_time_max": 0,
+            "aromatic": null,
+            "ph_max": null,
+            "trunk": null,
+            "instances": 9
+        },
+        "x": 10,
+        "y": 40,
+        "type": "tree"
+    }
+    ];
+    
+    var stage = new Konva.Stage({
+      container: 'map',
+      width: width,
+      height: height
+    });
+
+    var plantsLayer = new Konva.Layer();
+    for (var i = data.length - 1; i >= 0; i--) {
+      var plant = new Konva.Circle({
+        x: Number(data[i].x),
+        y: Number(data[i].y),
+        radius: Number(data[i].width/2),
+        fill: 'red',
+        stroke: 'black',
+        opacity: 0.5,
+        strokeWidth: 2
+      });
+      console.log(plant);
+      // add the shape to the layer
+      plantsLayer.add(plant);
+    }
+
+    // add the layer to the stage
+    stage.add(plantsLayer);
+  </script>
+
+</body>
+</html>
