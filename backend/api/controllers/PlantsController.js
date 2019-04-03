@@ -60,40 +60,54 @@ module.exports = {
         // BEGIN OPTIMIZATION
 
         // RETURN RESPONSE
-        var selectedPlants = result.rows;
-        let width = req.param('width'),
-            height = req.param('height'),
-            totalArea = width * height,
-            binsAreas = totalArea / selectedPlants.length,
+        const CMtoM = 50;
+        let largePlants = result.rows,
+            plotWidth = Number(req.param('width'))*CMtoM,
+            plotHeight = Number(req.param('height'))*CMtoM,
+            totalArea = plotWidth * plotHeight,
+            binsAreas = totalArea / largePlants.length,
             plot = Object(),
             x = 0,
             y = 0,
-            bed = 0;
+            bed = 0,
+            hileraWidth;
         plot.ground = new Array();
         plot.plants = new Array();
         
         // Ancho de la hilera
-        let hileraWidth = Math.pow(selectedPlants[0].distance,2);
-        
+        if (largePlants[0] !== undefined) {
+            const firstPlant = largePlants[0];
+            x = firstPlant.distance*CMtoM/2;
+            y = firstPlant.distance*CMtoM/2;
+            hileraWidth = Math.pow(largePlants[0].distance*CMtoM, 2);
+        }
         // Go through plant instances, generating hileras and nodes
-        for (let i=0; i<selectedPlants.length; i++) {
-            plantArea = Math.pow(selectedPlants[i].distance,2)
-            selectedPlants[i].instances = Math.floor(binsAreas / plantArea );
+        for (let i=0; i<largePlants.length; i++) {
+            plantArea = Math.pow(largePlants[i].distance*CMtoM, 2)
+            currentPlantHue = i/largePlants.length*360;
+            largePlants[i].instances = Math.floor(binsAreas / plantArea);
             // First Y indentation
-            for (let j=0; j<selectedPlants[i].instances; j++) {
+            for (let j=0; j<largePlants[i].instances; j++) {
                 // Create node
                 let node = Object();
                 // Node properties
-                node.width = selectedPlants[i].distance;
-                node.height = selectedPlants[i].distance;
-                node.meta = selectedPlants[i];    
+                width = largePlants[i].distance*CMtoM;
+                height = largePlants[i].distance*CMtoM;
+                node.trunkDiameter = largePlants[i].trunk_diameter;
+                if (node.trunkDiameter == 0)
+                node.trunkDiameter = largePlants[i].distance*CMtoM*(1/6/4);  // Tree trunk diameter tends to be 1/6 of it's recomended distance. Small plants are a fration of that.
+                node.hue = currentPlantHue;
                 // Node placement
-                if (x + selectedPlants[i].distance < height)
-                    x = x + selectedPlants[i].distance;
+                if (x + height < plotHeight)
+                    x = x + height;
                 else {
                     x = 0;
-                    if (y + selectedPlants[i].distance < width)
-                        y = y + selectedPlants[i].distance;
+                    hileraWidth = largePlants[i].distance*CMtoM * 2;
+                    if (y + /*width + */hileraWidth < plotWidth)
+                        y = y + /*width + */hileraWidth;
+                    else
+                        console.log(i+"/"+largePlants.length+" | "+j+"/"+largePlants[i].instances);
+                        break;
                 }
                 node.x = x;
                 node.y = y;

@@ -53,7 +53,7 @@ module.exports = {
     },
     // Tallos
     // Árboles, arbustos, hierbas
-    diameter: {
+    trunk_diameter: {
       type: 'number',
     },
     type: {

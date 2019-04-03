@@ -20,15 +20,22 @@
 		var height = window.innerHeight;
 		var data;
 
-		var req_plants = [41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62].toString();
-			req_height = "200",
-			req_width = "300";
+		var req_plants = [/*41,42,43,44,45,46,47,48,49,50,51,*/52,53,54,55,56/*,57,58,59,60,61,62*/].toString();
+			req_height = "80",
+			req_width = "40";
 
 		var http = new XMLHttpRequest();
     http.onreadystatechange = function() {
-      if (http.readyState == 4 && http.status == 200) {
-        data = JSON.parse(http.responseText);
-        dataProcess(data);
+      if (http.readyState == 4) {
+  	    console.log(http.status);
+  	    if (http.status == 200) {
+        	data = JSON.parse(http.responseText);
+        	dataProcess(data);
+        }
+	      else {
+  	    	console.log(http.responseText);
+  	    	alert("err: "+http.status+", res: "+http.responseText);
+  	    }
       }
     }
 
@@ -63,12 +70,13 @@
 		});
 
 		function dataProcess(data) {
+			console.log("Adding ground");
 			for (var i = data.ground.length - 1; i >= 0; i--) {
 				var ground = new Konva.Rect({
 					x: Number(data.ground[i].x),
 					y: Number(data.ground[i].y),
 					width: Number(data.ground[i].width),
-					width: Number(data.ground[i].height),
+					height: Number(data.ground[i].height),
 					fill: 'brown',
 					stroke: 'black',
 					strokeWidth: 2
@@ -79,15 +87,16 @@
 			}
 			
 			// Add plants
+			console.log("Adding plants");
 			for (var i = data.plants.length - 1; i >= 0; i--) {
 				var plant = new Konva.Circle({
 					x: Number(data.plants[i].x),
 					y: Number(data.plants[i].y),
-					radius: Number(data.plants[i].width/2),
-					fill: 'red',
-					stroke: 'black',
-					opacity: 0.5,
-					strokeWidth: 2
+					radius: Number(data.plants[i].trunkDiameter/2),
+					fill: 'brown',//"hsl("+data.plants[i].hue+", 100, 50)", //'brown',
+					stroke: 'darkbrown',
+					opacity: 0.8,
+					strokeWidth: 6
 				});
 				// console.log(plant);
 				// add the shape to the layer
@@ -96,6 +105,7 @@
 
 			// add the layer to the stage
 			stage.add(plantsLayer);
+			console.log("Processing complete");
 		}
 	</script>
 
