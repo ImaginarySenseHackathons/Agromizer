@@ -53,16 +53,19 @@ module.exports = {
     },
     // Tallos
     // Árboles, arbustos, hierbas
+    diameter: {
+      type: 'number',
+    },
     type: {
       type: 'string',
-      isIn: ['Aromática', 'Floral', 'Leguminosa', 'Frutal', 'Hortaliza'],
+      isIn: ['', 'Aromática', 'Floral', 'Leguminosa', 'Frutal', 'Hortaliza'],
     },
     
     // ASOCIATIONS
     // Relevant to asociation
     trunk: {
       type: 'string',
-      isIn: ['Subterraneo', 'Trepador', 'Herbáceos', 'Carnosos', 'Mata', 'Arbusto', 'Árbol'],
+      isIn: ['', 'Subterraneo', 'Trepador', 'Herbáceo', 'Carnoso', 'Mata', 'Arbusto', 'Árbol'],
     },
     
     // // DISTANCE BETWEEN PLANTS WITHIN NODE

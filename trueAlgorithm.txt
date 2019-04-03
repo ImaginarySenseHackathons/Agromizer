@@ -1,0 +1,23 @@
+	A. Plot Nodos de Surcos
+V	0. Entre los árboles seleccionados por el usuario
+V	1. Seleccionar árboles grandes y medianos, ordenando según sus distancias recomendadas, de mayor a menor
+V	2. Resolver: areaTotal = A(finca)
+V	3. Resolver: areaDispParaPlantaGrande = areaTotal / (cantidad_arboles + cantidad_arbustos)
+V	4. Por cada planta grande:
+V	5. Resolver: instanciasDeLaPlantaGrande = floor( areaDispParaPlantaGrande / distance )
+	6. Segmentación de hileras en bloques
+	root((100*20)/5/6,2)
+
+	7. Resolver: Ubicar nodos 1 por 1, t to b, l to r, en hileras vert
+	8. Por cada hilera, resolver y guardar: área hilera
+	9. Resolver y guardar: área camino
+
+
+	sqrt((height * width) / avgLength / largePlantInstances)
+	A = (height * width)
+	sqrt(A / avgLength / largePlantInstances)
+
+
+
+
+

@@ -37,16 +37,15 @@ module.exports = {
         if (!req.param('plants')) return res.badRequest('Please specify \'plants\'');
         // VARIABLES
         let result,
-            plants = req.param('plants').slice(1,-1),
+            requestedPlants = req.param('plants').slice(1,-1),
             valuesToEscape = [];
         let sql = `SELECT *
             FROM plants
-            WHERE id IN (`+plants+`) AND distance>=1
+            WHERE id IN (`+requestedPlants+`) AND distance>=1
             ORDER BY distance DESC
             `;
         // EXECUTE
         try {
-            // Attempt to find all drivers.
             result = await sails.sendNativeQuery(sql, valuesToEscape);
             // result = await Plants.find();
         } catch (err) {
@@ -55,47 +54,52 @@ module.exports = {
                 case 'UsageError':
                     return res.badRequest(err);
                 default:
-                    return res.serverError(err, 'Failed to get all the drivers');
+                    return res.serverError(err, 'Failed to gather data');
             }
         }
         // BEGIN OPTIMIZATION
 
         // RETURN RESPONSE
-        plants = result.rows;
+        var selectedPlants = result.rows;
         let width = req.param('width'),
             height = req.param('height'),
             totalArea = width * height,
-            binsAreas = totalArea / plants.length,
-            plot = Array(),
+            binsAreas = totalArea / selectedPlants.length,
+            plot = Object(),
             x = 0,
             y = 0,
             bed = 0;
+        plot.ground = new Array();
+        plot.plants = new Array();
+        
         // Ancho de la hilera
-        let hileraWidth = Math.pow(plants[0].distance,2);
+        let hileraWidth = Math.pow(selectedPlants[0].distance,2);
+        
         // Go through plant instances, generating hileras and nodes
-        for (let i=0; i<plants.length; i++) {
-            plantArea = Math.pow(plants[i].distance,2)
-            plants[i].instances = Math.floor(binsAreas / plantArea );
+        for (let i=0; i<selectedPlants.length; i++) {
+            plantArea = Math.pow(selectedPlants[i].distance,2)
+            selectedPlants[i].instances = Math.floor(binsAreas / plantArea );
             // First Y indentation
-            for (let j=0; j<plants[i].instances; j++) {
+            for (let j=0; j<selectedPlants[i].instances; j++) {
                 // Create node
                 let node = Object();
                 // Node properties
-                node.width = plants[i].distance;
-                node.height = plants[i].distance;
-                node.plant = plants[i];    
+                node.width = selectedPlants[i].distance;
+                node.height = selectedPlants[i].distance;
+                node.meta = selectedPlants[i];    
                 // Node placement
-                if (x + plants[i].distance < height)
-                    x = x + plants[i].distance;
-                else
+                if (x + selectedPlants[i].distance < height)
+                    x = x + selectedPlants[i].distance;
+                else {
                     x = 0;
+                    if (y + selectedPlants[i].distance < width)
+                        y = y + selectedPlants[i].distance;
+                }
                 node.x = x;
-                if (y + plants[i].distance < width)
-                    y = y + plants[i].distance;
                 node.y = y;
                 // Add tree node to plotter
                 node.type = 'tree';
-                plot.push(node);
+                plot.plants.push(node);
             }
         }
         return res.ok(plot);
