@@ -3,9 +3,9 @@ var height = window.innerHeight;
 var data;
 
 var req_plants = [/*16,*/17,18,19/*,20,21,22,23,24,25,26,27,28,29*/].toString();
-	req_height = "80",
-	req_width = "40",
-	req_scale = 15;
+	req_height = "40",
+	req_width = "20",
+	req_scale = 30;
 
 var http = new XMLHttpRequest();
 http.onreadystatechange = function() {
@@ -79,9 +79,9 @@ function dataProcess(data) {
 			fill: 'hsl('+data.plants[i].hue+', 100%, 50%)', //'brown',
 			stroke: 'darkbrown',
 			opacity: 0.8,
-			strokeWidth: 6
+			strokeWidth: 0.07*req_scale
 		});
-		console.log(i);
+		console.log(data.plants[i].hue);
 		// add the shape to the layer
 		plantsLayer.add(plant);
 	}
