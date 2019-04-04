@@ -328,7 +328,7 @@ module.exports.bootstrap = async function() {
     },
     {
       "common_name": "Limón",
-      "scientific_name": " Citrus × limon",
+      "scientific_name": "Citrus × limon",
       "ph_min": 6.6,
       "ph_max": 7.5,
       "distance": 6,

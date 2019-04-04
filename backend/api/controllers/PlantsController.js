@@ -35,13 +35,15 @@ module.exports = {
         if (!req.param('height')) return res.badRequest('Please specify \'height\'');
         if (!req.param('width')) return res.badRequest('Please specify \'width\'');
         if (!req.param('plants')) return res.badRequest('Please specify \'plants\'');
+        if (!req.param('scale')) return res.badRequest('Please specify \'scale\' in pixels per meter');
         // VARIABLES
         let result,
             requestedPlants = req.param('plants').slice(1,-1),
             valuesToEscape = [];
         let sql = `SELECT *
             FROM plants
-            WHERE id IN (`+requestedPlants+`) AND distance>=1
+            `+(isNaN(requestedPlants)?`WHERE id IN (`+requestedPlants+`)`:`WHERE id=`+Number(requestedPlants))
+            +` AND distance>=1
             ORDER BY distance DESC
             `;
         // EXECUTE
@@ -60,7 +62,7 @@ module.exports = {
         // BEGIN OPTIMIZATION
 
         // RETURN RESPONSE
-        const CMtoM = 50;
+        const CMtoM = Number(req.param('scale'));
         let largePlants = result.rows,
             plotWidth = Number(req.param('width'))*CMtoM,
             plotHeight = Number(req.param('height'))*CMtoM,

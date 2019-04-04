@@ -2,22 +2,23 @@ var width = window.innerWidth;
 var height = window.innerHeight;
 var data;
 
-var req_plants = [/*41,42,43,44,45,46,47,48,49,50,51,*/52,53,54,55,56/*,57,58,59,60,61,62*/].toString();
+var req_plants = [/*16,*/17,18,19/*,20,21,22,23,24,25,26,27,28,29*/].toString();
 	req_height = "80",
-	req_width = "40";
+	req_width = "40",
+	req_scale = 15;
 
 var http = new XMLHttpRequest();
 http.onreadystatechange = function() {
 	if (http.readyState == 4) {
-	console.log(http.status);
-	if (http.status == 200) {
-		data = JSON.parse(http.responseText);
-		dataProcess(data);
-	}
+		console.log(http.status);
+		if (http.status == 200) {
+			data = JSON.parse(http.responseText);
+			dataProcess(data);
+		}
 		else {
-		console.log(http.responseText);
-		alert("err: "+http.status+", res: "+http.responseText);
-	}
+			console.log(http.responseText);
+			alert("err: "+http.status+", res: "+http.responseText);
+		}
 	}
 }
 
@@ -25,7 +26,7 @@ function getData() {
 	// Get credits page.
 	http.open("POST", "http://localhost:1337/optimize", true);
 	http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	http.send("plants="+req_plants+"&height="+req_height+"&width="+req_width);
+	http.send("scale="+req_scale+"&plants="+req_plants+"&height="+req_height+"&width="+req_width);
 }
 
 getData();
@@ -70,17 +71,17 @@ function dataProcess(data) {
 	
 	// Add plants
 	console.log("Adding plants");
-	for (var i = data.plants.length - 1; i >= 0; i--) {
+	for (var i=0; i<data.plants.length; i++) {
 		var plant = new Konva.Circle({
 			x: Number(data.plants[i].x),
 			y: Number(data.plants[i].y),
 			radius: Number(data.plants[i].trunkDiameter/2),
-			fill: 'brown',//"hsl("+data.plants[i].hue+", 100, 50)", //'brown',
+			fill: 'hsl('+data.plants[i].hue+', 100%, 50%)', //'brown',
 			stroke: 'darkbrown',
 			opacity: 0.8,
 			strokeWidth: 6
 		});
-		// console.log(plant);
+		console.log(i);
 		// add the shape to the layer
 		plantsLayer.add(plant);
 	}
