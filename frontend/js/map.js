@@ -2,10 +2,11 @@ var width = window.innerWidth;
 var height = window.innerHeight;
 var data;
 
-var req_plants = [/*16,*/17,18,19/*,20,21,22,23,24,25,26,27,28,29*/].toString();
-	req_height = "40",
-	req_width = "20",
-	req_scale = 30;
+var req_plants = [/*16,17,18,*/19,20,21,22,23/*,24,25,26,27,28,29*/].toString();
+	req_height = "65",
+	req_width = "30",
+	req_scale = 23,
+	debugTrunkScale = 2;
 
 var http = new XMLHttpRequest();
 http.onreadystatechange = function() {
@@ -75,9 +76,9 @@ function dataProcess(data) {
 		var plant = new Konva.Circle({
 			x: Number(data.plants[i].x),
 			y: Number(data.plants[i].y),
-			radius: Number(data.plants[i].trunkDiameter/2),
+			radius: Number(data.plants[i].trunkDiameter/2*debugTrunkScale),
 			fill: 'hsl('+data.plants[i].hue+', 100%, 50%)', //'brown',
-			stroke: 'darkbrown',
+			stroke: '#442222',
 			opacity: 0.8,
 			strokeWidth: 0.07*req_scale
 		});

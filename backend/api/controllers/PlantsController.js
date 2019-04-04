@@ -38,11 +38,16 @@ module.exports = {
         if (!req.param('scale')) return res.badRequest('Please specify \'scale\' in pixels per meter');
         // VARIABLES
         let result,
-            requestedPlants = req.param('plants').slice(1,-1),
+            requestedPlants,
             valuesToEscape = [];
+        // if (isNaN(req.param('plants')))
+            // requestedPlants = req.param('plants').slice(1,-1);
+        // else 
+        requestedPlants = req.param('plants');
+        console.log(requestedPlants);
         let sql = `SELECT *
             FROM plants
-            `+(isNaN(requestedPlants)?`WHERE id IN (`+requestedPlants+`)`:`WHERE id=`+Number(requestedPlants))
+            `+(isNaN(requestedPlants)?`WHERE id IN (`+requestedPlants+`)`:`WHERE id=`+requestedPlants)
             +` AND distance>=1
             ORDER BY distance DESC
             `;
@@ -89,7 +94,7 @@ module.exports = {
             currentPlantHue = i/largePlants.length*360;
             largePlants[i].instances = Math.floor(binsAreas / plantArea);
             // First Y indentation
-            for (let j=0; j<largePlants[i].instances; j++) {
+            for (let j=0; j<=largePlants[i].instances; j++) {
                 // Create node
                 let node = Object();
                 // Node properties
