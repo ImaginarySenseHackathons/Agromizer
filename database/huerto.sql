@@ -88,4 +88,4 @@ INSERT INTO "plants" ("createdAt", "updatedAt", "id", "scientific_name", "common
 (1554339772140,	1554339772140,	34,	'Ocimum',	'Albahaca',	'f',	0,	0,	0.23,	0,	'Aromática',	''),
 (1554339772140,	1554339772140,	26,	'Citrus × limon',	'Limón',	'f',	6.6,	7.5,	6,	0,	'Frutal',	'Árbol');
 
--- 2019-04-04 00:06:18.868024-04
+-- 2019-04-04 09:37:18.751401-04
