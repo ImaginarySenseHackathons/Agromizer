@@ -1,142 +1,126 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
-
-<title>AgroData</title>
-
-<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">    
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css">
-<link rel="stylesheet" type="text/css" href="table.css">
+  <meta charset="utf-8">
+  <title>AgroData</title>
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/datatables.min.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/table.css">
 </head>
-
 <body>
-    <table id="myTable" class="table" cellspacing="0" width="100%">
-        <thead>
-            <tr>
-                <th>Common_Name</th>
-                <th>Scientific_Name</th>
-                <th>Ph_Min</th>
-                <th>Ph_Max</th>
-                <th>Espacio(M)</th>
-                <th>Fijadoras de Nitrogeno</th>
-                <th>Aromaticas</th>
-                <th>Tipo</th>
-            </tr>
-        </thead>
-        <tfoot>
-            <tr>
-                <th>Common_Name</th>
-                <th>Scientific_Name</th>
-                <th>Ph_Min</th>
-                <th>Ph_Max</th>
-                <th>Espacio(M)</th>
-                <th>Fijadoras de Nitrogeno</th>
-                <th>Aromaticas</th>
-                <th>Tipo</th>
-            </tr>
-        </tfoot>
-        <tbody>
-            <tr>
-                <td>Sandia</td>
-                <td>Citrullus lanatus</td>
-                <td>5.8</td>
-                <td>7.2</td>
-                <td>1.5</td>
-                <td>N/A</td>
-                <td>N/A</td>
-                <td>Frutal</td>
-            </tr>
-            <tr>
-                <td>Berenjena</td>
-                <td>Solanum melongena</td>
-                <td>5.5</td>
-                <td>7</td>
-                <td>0.45</td>
-                <td>N/A</td>
-                <td>N/A</td>
-                <td>Hortalizas</td>
-            </tr>
-            <tr>
-                <td>Melon</td>
-                <td>Cucumis melo</td>
-                <td>5.8</td>
-                <td>7.2</td>
-                <td>1.2</td>
-                <td>N/A</td>
-                <td>N/A</td>
-                <td>Frutal</td>
-            </tr>
-            <tr>
-                <td>Aguacate</td>
-                <td>Persea americana</td>
-                <td>5.5</td>
-                <td>7</td>
-                <td>8</td>
-                <td>N/A</td>
-                <td>N/A</td>
-                <td>Frutal</td>
-            </tr>
-            
-            <tr>
-                 <td>Melocoton</td>
-                <td>Prunus persica</td>
-                <td>6</td>
-                <td>6.5</td>
-                <td>6</td>
-                <td>N/A</td>
-                <td>N/A</td>
-                <td>Frutal</td>
-            </tr>
-            <tr>
-                <td>Guanabana</td>
-                <td>Annona muricata</td>
-                <td>5.5</td>
-                <td>6.4</td>
-                <td>7</td>
-                <td>N/A</td>
-                <td>N/A</td>
-                <td>Frutal</td>
-            </tr>
-
-            <tr>
-                <td>Mango</td>
-                <td>Mangifera indica</td>
-                <td>6</td>
-                <td>7.9</td>
-                <td>10</td>
-                <td>N/A</td>
-                <td>N/A</td>
-                <td>Frutal</td>
-            </tr>
-
-            <tr>
-                <td>Papaya</td>
-                <td>Carica papaya</td>
-                <td>5</td>
-                <td>6.5</td>
-                <td>3</td>
-                <td>N/A</td>
-                <td>N/A</td>
-                <td>Frutal</td>
-            </tr>
-             
-
-            
-        </tbody>
-
-     
-
-     </table>
-    
-    <!-- <img src="../images/ground.png" style="width: 100%; margin-top: 280px"> -->
-    
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> 
-    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" src="table.js"></script>
-    
+  <table id="myTable" class="table" cellspacing="0" width="100%">
+    <thead>
+      <tr>
+        <th>Common_Name</th>
+        <th>Scientific_Name</th>
+        <th>Ph_Min</th>
+        <th>Ph_Max</th>
+        <th>Espacio(M)</th>
+        <th>Fijadoras de Nitrogeno</th>
+        <th>Aromaticas</th>
+        <th>Tipo</th>
+      </tr>
+    </thead>
+    <tfoot>
+      <tr>
+        <th>Common_Name</th>
+        <th>Scientific_Name</th>
+        <th>Ph_Min</th>
+        <th>Ph_Max</th>
+        <th>Espacio(M)</th>
+        <th>Fijadoras de Nitrogeno</th>
+        <th>Aromaticas</th>
+        <th>Tipo</th>
+      </tr>
+    </tfoot>
+    <tbody>
+      <tr>
+        <td>Sandia</td>
+        <td>Citrullus lanatus</td>
+        <td>5.8</td>
+        <td>7.2</td>
+        <td>1.5</td>
+        <td>N/A</td>
+        <td>N/A</td>
+        <td>Frutal</td>
+      </tr>
+      <tr>
+        <td>Berenjena</td>
+        <td>Solanum melongena</td>
+        <td>5.5</td>
+        <td>7</td>
+        <td>0.45</td>
+        <td>N/A</td>
+        <td>N/A</td>
+        <td>Hortalizas</td>
+      </tr>
+      <tr>
+        <td>Melon</td>
+        <td>Cucumis melo</td>
+        <td>5.8</td>
+        <td>7.2</td>
+        <td>1.2</td>
+        <td>N/A</td>
+        <td>N/A</td>
+        <td>Frutal</td>
+      </tr>
+      <tr>
+        <td>Aguacate</td>
+        <td>Persea americana</td>
+        <td>5.5</td>
+        <td>7</td>
+        <td>8</td>
+        <td>N/A</td>
+        <td>N/A</td>
+        <td>Frutal</td>
+      </tr>
+      <tr>
+         <td>Melocoton</td>
+        <td>Prunus persica</td>
+        <td>6</td>
+        <td>6.5</td>
+        <td>6</td>
+        <td>N/A</td>
+        <td>N/A</td>
+        <td>Frutal</td>
+      </tr>
+      <tr>
+        <td>Guanabana</td>
+        <td>Annona muricata</td>
+        <td>5.5</td>
+        <td>6.4</td>
+        <td>7</td>
+        <td>N/A</td>
+        <td>N/A</td>
+        <td>Frutal</td>
+      </tr>
+      <tr>
+        <td>Mango</td>
+        <td>Mangifera indica</td>
+        <td>6</td>
+        <td>7.9</td>
+        <td>10</td>
+        <td>N/A</td>
+        <td>N/A</td>
+        <td>Frutal</td>
+      </tr>
+      <tr>
+        <td>Papaya</td>
+        <td>Carica papaya</td>
+        <td>5</td>
+        <td>6.5</td>
+        <td>3</td>
+        <td>N/A</td>
+        <td>N/A</td>
+        <td>Frutal</td>
+      </tr>
+    </tbody>
+   </table>
+  <!-- <img src="../images/ground.png" style="width: 100%; margin-top: 280px"> -->
+  <script type="text/javascript" src="js/jquery.min.js"></script> 
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/datatables.min.js"></script>
+  <script type="text/javascript" src="js/table.js"></script>    
 </body>
 </html>
-
-
-   
