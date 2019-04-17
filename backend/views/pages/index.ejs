@@ -4,42 +4,42 @@ For more information, see:
 • https://sailsjs.com/documentation/concepts/views
 • https://sailsjs.com/documentation/concepts/routes
 -->
-<table id="myTable" class="table" cellspacing="0" width="100%">
+<h1 style="text-align:center;">Agromizer</h1>
+<table style="position: static;" id="myTable" class="table" cellspacing="0" width="100%">
   <thead>
     <tr>
-      <th>Common_Name</th>
-      <th>Scientific_Name</th>
-      <th>Ph_Min</th>
-      <th>Ph_Max</th>
-      <th>Espacio(M)</th>
+      <th>Combre Común</th>
+      <th>Nombre Científico</th>
+      <th>Ph Min</th>
+      <th>Ph Max</th>
+      <th>Espacio (m)</th>
       <th>Fijadoras de Nitrogeno</th>
-      <th>Aromaticas</th>
-      <th>Tipo</th>
+      <th>Clasificación</th>
     </tr>
   </thead>
   <tfoot>
     <tr>
-      <th>Common_Name</th>
-      <th>Scientific_Name</th>
-      <th>Ph_Min</th>
-      <th>Ph_Max</th>
-      <th>Espacio(M)</th>
+      <th>Nombre Común</th>
+      <th>Nombre Científico</th>
+      <th>Ph Min</th>
+      <th>Ph Max</th>
+      <th>Espacio (m)</th>
       <th>Fijadoras de Nitrogeno</th>
-      <th>Aromaticas</th>
-      <th>Tipo</th>
+      <th>Clasificación</th>
     </tr>
   </tfoot>
   <tbody>
+  <% for (var i=0; i < plants.length; i++) { %>
     <tr>
-      <td>Sandia</td>
-      <td>Citrullus lanatus</td>
-      <td>5.8</td>
-      <td>7.2</td>
-      <td>1.5</td>
-      <td>N/A</td>
-      <td>N/A</td>
-      <td>Frutal</td>
+      <td><%= plants[i].common_name %></td>
+      <td><%= plants[i].scientific_name %></td>
+      <td><%= parseFloat(plants[i].ph_min).toFixed(1) %></td>
+      <td><%= parseFloat(plants[i].ph_max).toFixed(1) %></td>
+      <td><%= parseFloat(plants[i].distance).toFixed(2) %></td>
+      <td><%= plants[i].nitrogen?"Si":"No" %></td>
+      <td><%= plants[i].type %></td>
     </tr>
+  <% } %>
   </tbody>
 </table>
 <script src="/js/table.js"></script>

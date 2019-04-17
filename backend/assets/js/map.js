@@ -5,7 +5,7 @@ var data;
 var req_plants = [/*16,17,18,*/19,20,21,22,23/*,24,25,26,27,28,29*/].toString();
 	req_height = "65",
 	req_width = "30",
-	req_scale = 23,
+	req_scale = 13,
 	debugTrunkScale = 2;
 
 var http = new XMLHttpRequest();

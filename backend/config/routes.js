@@ -19,7 +19,10 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
- '/': { view: 'pages/index' },
+ '/': {
+    controller: 'plants',
+    action: 'plants'
+ },
  '/map': { view: 'pages/map' },
   'GET /plants': {
     controller: 'plants',

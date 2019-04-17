@@ -7,14 +7,18 @@
 
 module.exports = {
   
+    // GET /
+    // plantsPage: async function(req, res) {
+    // }
+
     // GET /plants
     plants: async function(req, res) {
         // VARIABLES
         let result;
         // EXECUTE
         try {
-        // Attempt to find all drivers.
-        result = await Plants.find();
+            // Attempt to find all drivers.
+            result = await Plants.find();
         } catch (err) {
             // Error Management
             switch (err.name) {
@@ -25,11 +29,13 @@ module.exports = {
             }
         }
         // OUTPUT
-        if (result !== undefined)
-        return res.ok(result);
+        // if (result !== undefined)
+            // return res.ok(result);
+        plants = result;
+        return res.view('pages/index', plants);
     },
 
-    // POST /optimize
+    // POST /optimizez
     optimize: async function(req, res) {
         // VALIDATE
         if (!req.param('height')) return res.badRequest('Please specify \'height\'');
