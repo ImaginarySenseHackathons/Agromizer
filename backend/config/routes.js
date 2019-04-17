@@ -19,15 +19,19 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
- '/': {
-    controller: 'plants',
-    action: 'plants'
- },
- '/map': { view: 'pages/map' },
-  'GET /plants': {
+  // Pages
+  '/': {
     controller: 'plants',
     action: 'plants'
   },
+  '/map': {
+    view: 'pages/map'
+  },
+  // AJAX
+  // 'GET /plants': {
+    // controller: 'plants',
+    // action: 'plants'
+  // },
   'POST /optimize': {
     controller: 'plants',
     action: 'optimize'

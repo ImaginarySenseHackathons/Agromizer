@@ -32,7 +32,7 @@ module.exports = {
         // if (result !== undefined)
             // return res.ok(result);
         plants = result;
-        return res.view('pages/index', plants);
+        return res.view('pages/table', plants);
     },
 
     // POST /optimizez
