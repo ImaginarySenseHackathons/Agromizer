@@ -15,6 +15,8 @@ If you have any feature requests or would like to make use of Agromizer but you 
 6. Move to the `backend` folder by running `cd backend` on the terminal.
 7. Install Node dependencies by running `npm install` on the terminal.
 8. Start Agromizer by running `sails lift` on the terminal.
+9. On a web browser, such as Firefox, go to the following address: `localhost:1337`.
+10. Read [`/backend/config/routes.js`](https://github.com/ImaginarySenseHackatons/Agromizer/blob/master/backend/config/routes.js) for a list of pages and routes that compose Agromizer. (E.g. `localhost:1337`, `localhost:1337/map`)
 
 ## About the code
 Agromizer is written in NodeJS using SailsJS for the backend, and Bootstrap, JQuery, and Konva for the frontend. It is licensed under the Apache 2.0 license.
