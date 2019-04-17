@@ -13,7 +13,8 @@ If you have any feature requests or would like to make use of Agromizer but you 
 4. (Optional), if you choose to use different credentials, make sure to update the credentials in Agromizer by changing the `url` entry in `./backend/config/datastores.js`.
 5. Start a terminal or command prompt on the Agromizer project.
 6. Move to the `backend` folder by running `cd backend` on the terminal.
-7. Start Agromizer by running `sails lift` on the terminal.
+7. Install Node dependencies by running `npm install` on the terminal.
+8. Start Agromizer by running `sails lift` on the terminal.
 
 ## About the code
 Agromizer is written in NodeJS using SailsJS for the backend, and Bootstrap, JQuery, and Konva for the frontend. It is licensed under the Apache 2.0 license.
